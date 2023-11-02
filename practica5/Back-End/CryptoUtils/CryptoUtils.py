@@ -1,6 +1,6 @@
 from base64 import b64encode
-from Cryptodome.Util.Padding import pad, unpad
-from Cryptodome.Cipher import AES
+from Crypto.Util.Padding import pad, unpad
+from Crypto.Cipher import AES
 from hashlib import sha256
 
 plainkey='RGV2ZWxvcGVyQ29kZTIhQA=='
@@ -26,6 +26,6 @@ def validate(passwd, hash):
 
 if __name__ == '__main__':
     passwd = 'Hello different world'
-    ct = cipher(passwd)
+    ct = cipher('test')
     m = sha256(ct).hexdigest()
     print(validate(passwd, m))
